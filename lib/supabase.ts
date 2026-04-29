@@ -5,18 +5,38 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase environment variables');
+// Lazy initialize clients
+let supabase: ReturnType<typeof createClient> | null = null;
+let supabaseServer: ReturnType<typeof createClient> | null = null;
+
+if (supabaseUrl && supabaseAnonKey) {
+  // Client for browser (use anon key)
+  supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+  // Client for server-side operations (use service role key if available)
+  supabaseServer = createClient(
+    supabaseUrl,
+    supabaseServiceKey || supabaseAnonKey
+  );
 }
 
-// Client for browser (use anon key)
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Export getter functions
+export function getSupabase() {
+  if (!supabase) {
+    throw new Error('Supabase not initialized. Missing environment variables.');
+  }
+  return supabase;
+}
 
-// Client for server-side operations (use service role key if available)
-export const supabaseServer = createClient(
-  supabaseUrl,
-  supabaseServiceKey || supabaseAnonKey
-);
+export function getSupabaseServer() {
+  if (!supabaseServer) {
+    throw new Error('Supabase server not initialized. Missing environment variables.');
+  }
+  return supabaseServer;
+}
+
+// For backward compatibility, export objects (but they may be null)
+export { supabase, supabaseServer };
 
 export interface SupabaseUser {
   id: string;
