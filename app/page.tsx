@@ -113,7 +113,7 @@ export default function Home() {
               }}
             />
           ))}
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/30 via-slate-900/25 to-emerald-900/30" aria-hidden="true" />
+          <div className="absolute inset-0 bg-linear-to-r from-emerald-900/30 via-slate-900/25 to-emerald-900/30" aria-hidden="true" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24">
@@ -159,7 +159,7 @@ export default function Home() {
       </section>
 
       {/* Quick Access Section */}
-      <section className="bg-gradient-to-r from-emerald-50 to-blue-50 py-8 dark:from-slate-900 dark:to-slate-800 sm:py-12">
+      <section className="bg-linear-to-r from-emerald-50 to-blue-50 py-8 dark:from-slate-900 dark:to-slate-800 sm:py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <div className="rounded-lg border border-emerald-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800">
@@ -283,7 +283,7 @@ export default function Home() {
                     <img
                       src={slide}
                       alt={`Gallery image ${idx + 1}`}
-                      className="h-[420px] w-full object-cover transition duration-500 hover:scale-105"
+                      className="h-screen w-full object-cover transition duration-500 hover:scale-105"
                       loading="lazy"
                     />
                   </div>
@@ -328,7 +328,7 @@ export default function Home() {
               </li>
             </ul>
           </div>
-          <div className="rounded-xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-blue-50 p-8 dark:border-slate-700 dark:from-slate-800 dark:to-slate-900">
+          <div className="rounded-xl border border-emerald-200 bg-linear-to-br from-emerald-50 to-blue-50 p-8 dark:border-slate-700 dark:from-slate-800 dark:to-slate-900">
             <h3 className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">National Trust</h3>
             <p className="mt-4 text-sm text-slate-600 dark:text-slate-300">
               As a Federal Teaching Hospital, RSFUDTH maintains the highest standards of clinical practice, medical education, and research, serving as a beacon of healthcare excellence in Nigeria.
@@ -342,7 +342,7 @@ export default function Home() {
       </section>
 
       {/* Managing Director Section */}
-      <section className="bg-gradient-to-r from-slate-50 to-emerald-50 py-16 dark:from-slate-900 dark:to-emerald-900/20 sm:py-20">
+      <section className="bg-linear-to-r from-slate-50 to-emerald-50 py-16 dark:from-slate-900 dark:to-emerald-900/20 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="text-center">
             <p className="text-sm font-semibold uppercase tracking-wider text-emerald-600">Leadership Message</p>
@@ -385,7 +385,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-emerald-600 to-emerald-700 py-16 dark:from-emerald-900 dark:to-emerald-800 sm:py-20">
+      <section className="bg-linear-to-r from-emerald-600 to-emerald-700 py-16 dark:from-emerald-900 dark:to-emerald-800 sm:py-20">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
           <h2 className="text-3xl font-bold text-white sm:text-4xl">Ready to Take Control of Your Health?</h2>
           <p className="mx-auto mt-4 max-w-2xl text-base text-emerald-100">
